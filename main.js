@@ -1,4 +1,4 @@
-
+var difference
 var leftWrist
 var rightWrist
 var nosex
@@ -16,7 +16,8 @@ posenet.on("pose",gotPoses)
 function draw(){
  background("blue")
  fill(0, 245, 0);
-text('Rishit', 10, 60);
+text('Rishit', nosex, nosey);
+textSize(difference);
 }
 function modelLoaded(){
     console.log(ml5.version+' is ml5 version '+ ' Posenet Model is also loaded');
@@ -33,4 +34,9 @@ console.log(leftWrist + "is x of left wrist");
 console.log(rightWrist + "is x of right wrist");
 console.log(nosex + "is x of nose" );
 console.log(nosey + "is y of nose");
-}}
+ difference= leftWrist - rightWrist;
+    console.log(difference + " is the height and width of the square");
+    difference=floor(difference);
+    document.getElementById("ans").innerHTML = difference + "px"
+    }
+}
